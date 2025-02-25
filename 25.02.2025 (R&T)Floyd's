@@ -1,0 +1,24 @@
+Leetcode Q:-287
+Floyd's Algorithm (Rabbit & Tortoise problem)
+
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int s = 0;
+        int f = 0;
+
+        while(true) {
+            s = nums[s];
+            f = nums[nums[f]];
+            if(s == f) break;
+        }
+        int s2 = 0;
+        while(true) {
+            s = nums[s];
+            s2 = nums[s2];
+            if(s == s2) return s;
+        }
+        return -1;
+
+    }
+};
