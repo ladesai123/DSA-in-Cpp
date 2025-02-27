@@ -1,0 +1,34 @@
+class Solution {
+  public:
+    int maxSubarraySum(vector<int> &arr) {
+        // Your code here
+        int n = arr.size();
+        
+        // int maxSubArray = INT_MIN;
+        // int sum=0;
+        // for(int i=0;i<n;i++){
+        //     sum+=arr[i];
+        //     if(sum>maxSubArray){
+        //         maxSubArray=sum;
+        //     }
+        //     if(sum<0){
+        //         sum=0;
+        //     }
+        // }
+        
+        // return maxSubArray;
+        int currSum = 0 ;
+        int maxSum = INT_MIN;
+        
+        for(int i=0; i<n; i++) {
+            currSum += arr[i];
+            maxSum = max(currSum, maxSum);
+        
+            if(currSum < 0) {
+                currSum = 0;
+            }
+        }
+    
+        return maxSum;
+    }
+};
