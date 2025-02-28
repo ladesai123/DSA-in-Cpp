@@ -1,0 +1,25 @@
+class Solution {
+public:
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        int n = intervals.size();
+        if(n==0) return {};
+
+        sort(intervals.begin(), intervals.end());
+
+        vector<vector<int>> merged;
+        merged.push_back(intervals[0]);
+
+        for(int i=1; i<n; i++) {
+            int lastEnd = merged.back()[1];
+            int currStart = intervals[i][0];
+            int currEnd = intervals[i][1];
+
+            if(currStart <= lastEnd) {
+                merged.back()[1] = max(lastEnd, currEnd);
+            } else {
+                merged.push_back(intervals[i]);
+            }
+        }
+        return merged;
+    }
+};
