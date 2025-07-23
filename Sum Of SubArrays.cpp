@@ -41,3 +41,18 @@ int main() {
     cout << "Sum of all subarrays: " << sol.subarraySum(arr) << endl;
     return 0;
 }
+
+
+
+//Python3 code
+/*
+class Solution:
+    def subarraySum(self, arr):
+        # code here 
+        n = len(arr)
+        sum = 0
+        for i in range(n):
+            sum += arr[i]*(n-i)*(i+1)
+            
+        return sum
+*/
